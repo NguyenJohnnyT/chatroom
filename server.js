@@ -13,7 +13,7 @@ const send404 = (response) => {
 const sendFile = (response, filePath, fileContents) => {
   response.writeHead(
     200,
-    {"content-type": mime.lookup(path.basename(filePath))}
+    {"content-type": mime.getType(path.basename(filePath))}
   );
   response.end(fileContents);
 };
@@ -41,11 +41,10 @@ const serveStatic = (response, cache, absPath) => {
 
 const server = http.createServer((req, res) => {
   let filePath = false;
-
-  if (http.request.url == '/') {
+  if (req.url === '/') {
     filePath = 'public/index.html';
   } else {
-    filePath = 'public' + http.request.url;
+    filePath = 'public' + req.url;
   }
   const absPath = './' + filePath;
   serveStatic(res, cache, absPath);

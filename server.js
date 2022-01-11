@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const mime = require('mime');
 const cache = {};
+const chatServer = require('./lib/chat_server');
 
 const send404 = (response) => {
   response.writeHead(404, {'Content-Type': 'text/plain'});
@@ -50,6 +51,7 @@ const server = http.createServer((req, res) => {
   serveStatic(res, cache, absPath);
 });
 
+chatServer.listen(server);
 server.listen(3000, function () {
   console.log("Server listening on port 3000.");
 });

@@ -50,14 +50,13 @@ $(document).ready(() => {
 
   socket.on('rooms', (rooms) => {
     $('#room-list').empty();
-
-    for (const room in rooms) {
-      room = room.substring(1, room.length);
+    console.log(rooms);
+    rooms.forEach(room => {
       if (room !== '') {
         $('#room-list').append(divEscapedContentElement(room));
         console.log(room);
       }
-    }
+    })
 
     $('#room-list div').click(() => {
       chatApp.processCommand('/join ' + $(this).text());

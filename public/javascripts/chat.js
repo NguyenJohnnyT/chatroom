@@ -19,10 +19,10 @@ class Chat {
 
   processCommand (command) {
     let words = command.split(' ');
-    let command = words[0].substring(1, words[0].length).toLowerCase();
+    let commands = words[0].substring(1, words[0].length).toLowerCase();
     let message = false;
 
-    switch(command) {
+    switch(commands) {
       case 'join':
         words.shift();
         let room = words.join(' ');

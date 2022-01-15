@@ -55,6 +55,7 @@ $(document).ready(() => {
       room = room.substring(1, room.length);
       if (room !== '') {
         $('#room-list').append(divEscapedContentElement(room));
+        console.log(room);
       }
     }
 

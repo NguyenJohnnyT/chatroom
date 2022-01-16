@@ -1,4 +1,5 @@
 const http = require('http');
+const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const mime = require('mime');
@@ -40,15 +41,20 @@ const serveStatic = (response, cache, absPath) => {
   }
 };
 
-const server = http.createServer((req, res) => {
-  let filePath = false;
-  if (req.url === '/') {
-    filePath = 'public/index.html';
-  } else {
-    filePath = 'public' + req.url;
-  }
-  const absPath = './' + filePath;
-  serveStatic(res, cache, absPath);
+const app = express();
+const PORT = process.env.PORT || 3000;
+const server = http.createServer(app);
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/index.html'));
+});
+
+app.get('*', (req, res) => {
+  send404(res);
 });
 
 chatServer(server);

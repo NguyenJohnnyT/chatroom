@@ -58,6 +58,6 @@ app.get('*', (req, res) => {
 });
 
 chatServer(server);
-server.listen(3000, function () {
+server.listen(PORT, function () {
   console.log("Server listening on port 3000.");
 });

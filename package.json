@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/NguyenJohnnyT/chatroom#readme",
   "dependencies": {
+    "express": "^4.17.2",
     "mime": "^3.0.0",
     "nodemon": "^2.0.15",
     "socket.io": "^4.4.1"

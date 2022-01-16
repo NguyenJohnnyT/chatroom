@@ -6,7 +6,7 @@ A practice app using `socket.io` to emulate chat rooms. Code is based off of <i>
 
 ## How it is used
 
-Visit github pages (coming soon).
+Visit <a href="https://jtn-chatroom.herokuapp.com/">live link</a>.
 
 Locally: Clone the repo down to your desktop and run `node server.js`. The app is hosted on `localhost:3000`.
 

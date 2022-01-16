@@ -2,7 +2,7 @@
 
 ## What it is
 
-A practice app using `socket.io` to emulate chat rooms. Code is based off of <u>Node.js in Action</u> by Mike Cantelon, et al.
+A practice app using `socket.io` to emulate chat rooms. Code is based off of <i>Node.js in Action</i> by Mike Cantelon, et al.
 
 ## How it is used
 
